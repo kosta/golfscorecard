@@ -1,0 +1,48 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+    <title>Golf Score Card</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> 
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+</head> 
+<body> 
+
+<div data-role="page" data-theme="b">
+
+    <div data-role="header" data-theme="b">
+        <h1>Golf Score Card</h1>
+    </div><!-- /header -->
+
+    <div data-role="content">    
+        <p>Welcome to Gold Score card</p>
+        
+        <a href="#" data-role="button" data-icon="plus">Set Up Players</a>
+        <a href="#" data-role="button" data-icon="plus">Set Up a Gold Course</a>
+        <a href="#" data-role="button" data-icon="star">Start Playing</a>
+
+        <ul data-role="listview" data-inset="true">
+            <li><a id="swipetest" href="#">Swipe me</a></li>
+            <li><a href="#">But not me</a></li>
+            <li><a href="#">Not me</a></li>
+        </ul>
+    </div><!-- /content -->
+
+</div><!-- /page -->
+
+</body>
+
+<script>
+    $((function () {
+        function test(msg) {
+            return function (e) {
+                e.preventDefault();
+                alert(msg);
+            };
+        };
+        $("#swipetest").on("click", test('click')).on("swipe", test('swipe'));
+    }()));
+</script>
+
+</html>
