@@ -6,6 +6,11 @@
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
     <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
     <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+    <style>
+        .overlay-inline-button-margin {
+            margin-right: 35px;
+        }
+    </style>
 </head> 
 <body> 
 
@@ -17,7 +22,7 @@
     </div><!-- /header -->
 
     <div data-role="content">
-        <p>Welcome to Gold Score card</p>
+        <p>Welcome to Golf Score card</p>
         
         <a href="#" data-role="button" data-icon="plus">Set Up Players</a>
         <a href="#" data-role="button" data-icon="plus">Set Up a Golf Course</a>
@@ -52,15 +57,32 @@
     <div data-role="content">
         <ul data-role="listview" data-theme="d" data-divider-theme="c">
             <li data-role="list-divider">Kosta<span class="ui-li-count">2</span></li>
-            <li>
-                <span style="display: inline-block; min-height: 54px">
-                    <div style="position: absolute; top: 50%; height: 34px; margin-top: -17px">
-                        <h2>Taylor Made 3</h2>
-                    </div>
-                </span>
-                <span style="float: right">                    
-                    <a href="#" data-role="button" data-inline="true" data-theme="b" data-icon="plus" data-iconpos="right">3</a>
-                </span>
+            <li id="swipetest2">
+                <span id="swipetest2-regular">
+                    <span style="display: inline-block; min-height: 54px; min-width: 200px">
+                        <div style="position: absolute; top: 50%; height: 34px; margin-top: -17px">
+                                <h2>Taylor Made 3</h2>
+                        </div>
+                    </span>
+                    <span style="float: right">                    
+                        <a href="#" data-role="button" data-inline="true" data-theme="b" data-icon="plus" data-iconpos="right">3</a>
+                    </span>
+                </span> <!-- regular -->
+                <span id="swipetest2-overlay" style="display: none; min-width: 100%">
+                    <span style="display: inline-block; min-height: 54px; min-width: 100%">
+                        <div style="position: absolute; top: 50%; height: 34px; margin-top: -17px; min-width: 100%; text-align: center; background-color: pink">
+                            <!-- Back -->
+                            <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="back" data-iconpos="notext"></a> 
+                            <span style="min-width: 20px"></span>
+                            <!-- Minus -->
+                            <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="minus" data-iconpos="notext"></a> 
+                            <!-- Provisory -->
+                            <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="plus" data-iconpos="notext"></a> 
+                            <!-- Delete -->
+                            <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="delete" data-iconpos="notext"></a>
+                        </div>
+                    </span>
+                </span> <!-- overlay -->
             </li>
             <li>
                 <span style="display: inline-block; min-height: 54px">
@@ -141,7 +163,16 @@
                 alert(msg);
             };
         };
+        function showOverlay(prefix) {
+            return function(e) {
+                e.preventDefault();
+                $(prefix + '-regular').hide();
+                $(prefix + '-overlay').show();
+            }
+        }
         $("#swipetest").on("click", test('click')).on("swipe", test('swipe'));
+
+        $('#swipetest2').on("swipe", showOverlay("#swipetest2")).on("click", showOverlay("#swipetest2"));
     }()));
 </script>
 
