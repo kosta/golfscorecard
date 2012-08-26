@@ -1,0 +1,189 @@
+<!DOCTYPE html> 
+<html> 
+    <head> 
+    <title>Golf Score Card</title> 
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"> 
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.css" />
+    <script src="http://code.jquery.com/jquery-1.7.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
+    <style>
+        .overlay-inline-button-margin {
+            margin-left: 15px;
+            margin-right: 15px;
+        }
+    </style>
+</head> 
+<body> 
+
+<!-- The start page that is never reachable again... har har har. Might want to fix this... later :) -->
+<div data-role="page" id="home" data-theme="b">
+
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <h1>Golf Score Card</h1>
+    </div><!-- /header -->
+
+    <div data-role="content">
+        <p>Welcome to Golf Score card</p>
+        
+        <a href="#" data-role="button" data-icon="plus">Set Up Players</a>
+        <a href="#" data-role="button" data-icon="plus">Set Up a Golf Course</a>
+        <a href="#" data-role="button" data-icon="star">Start Playing</a>
+
+        <ul data-role="listview" data-inset="true" data-theme="b">
+            <li><a id="swipetest" href="#">Swipe me</a></li>
+            <li><a href="#">But not me</a></li>
+            <li><a href="#">Not me</a></li>
+        </ul>
+    </div><!-- /content -->
+
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#current-game" data-icon="check">Current</a></li>
+                <li><a href="#" data-icon="plus">New</a></li>
+                <li><a href="#" data-icon="grid">Past</a></li>
+                <li><a href="#" data-icon="gear">Settings</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div><!-- /footer -->
+
+</div><!-- /page -->
+
+<div data-role="page" id="current-game" data-theme="b">
+
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <a href="#" data-icon="arrow-l" data-iconpos="notext"></a>
+        <h1>Hole 13 Par 5</h1>
+        <a href="#" data-icon="arrow-r" data-iconpos="notext"></a>
+    </div><!-- /header-->
+
+    <div data-role="content">
+        <ul data-role="listview" data-theme="d" data-divider-theme="c">
+            <li data-role="list-divider">Kosta<span class="ui-li-count">2</span></li>
+            <li id="swipetest2">
+                <span >
+                    <span style="display: inline-block; min-height: 54px; min-width: 200px">
+                        <div style="position: absolute; top: 50%; height: 34px; margin-top: -17px">
+                                <h2>Taylor Made 3</h2>
+                        </div>
+                    </span>
+                    <span style="float: right">                    
+                        <a href="#" data-role="button" data-inline="true" data-theme="b" data-icon="plus" data-iconpos="right">3</a>
+                    </span>
+                </span> <!-- regular -->
+            </li>
+            <li id="swipetest2-overlay" style="display: none">
+                <div>
+                    <h2>Taylor Made 3</h2>
+                    <p style="text-align: center">
+                        <!-- Back -->
+                        <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="back" data-iconpos="notext"></a> 
+                        <!-- Minus -->
+                        <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="minus" data-iconpos="notext"></a> 
+                        <!-- Provisory -->
+                        <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="plus" data-iconpos="notext"></a> 
+                        <!-- Delete -->
+                        <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="delete" data-iconpos="notext"></a>
+                    </p>
+                </div>
+            </li> <!-- overlay -->
+            <li>
+                <span style="display: inline-block; min-height: 54px">
+                    <div style="position: absolute; top: 50%; height: 34px; margin-top: -17px">
+                        <h2>Pinnacle 1</h2>
+                    </div>
+                </span>
+                <span style="float: right">                    
+                    <a href="#" data-role="button" data-inline="true" data-theme="b" data-icon="plus" data-iconpos="right">3</a>
+                </span>
+            </li>
+            <li data-role="list-divider">Steffi<span class="ui-li-count">3</span></li>
+            <li>
+                <span style="display: inline-block; min-height: 54px">
+                    <div style="position: absolute; top: 50%; height: 34px; margin-top: -17px">
+                        <h2>Pink Lady</h2>
+                    </div>
+                </span>
+                <span style="float: right">                    
+                    <a href="#" data-role="button" data-inline="true" data-theme="b" data-icon="plus" data-iconpos="right">2</a>
+                </span>
+            </li>
+            <li>
+                <span style="display: inline-block; min-height: 54px">
+                    <div style="position: absolute; top: 50%; height: 34px; margin-top: -17px">
+                        <h2>Titelist 4</h2>
+                    </div>
+                </span>
+                <span style="float: right">                    
+                    <a href="#" data-role="button" data-inline="true" data-theme="b" data-icon="plus" data-iconpos="right">7</a>
+                </span>
+            </li>
+            <li>
+                <span style="display: inline-block; min-height: 54px">
+                    <div style="position: absolute; top: 50%; height: 34px; margin-top: -17px">
+                        <h2>Titelist 1</h2>
+                    </div>
+                </span>
+                <span style="float: right">                    
+                    <a href="#" data-role="button" data-inline="true" data-theme="b" data-icon="plus" data-iconpos="right">4</a>
+                </span>
+            </li>
+            <li data-role="list-divider">Leon<span class="ui-li-count">1</span></li>
+            <li>
+                <span style="display: inline-block; min-height: 54px">
+                    <div style="position: absolute; top: 50%; height: 34px; margin-top: -17px">
+                        <h2>W/S Staff 3</h2>
+                    </div>
+                </span>
+                <span style="float: right">                    
+                    <a href="#" data-role="button" data-inline="true" data-theme="b" data-icon="plus" data-iconpos="right">39</a>
+                </span>
+            </li>
+        </ul>
+    </div> <!-- /content -->
+
+    <!-- TODO: Generate this in one place -->
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#current" data-icon="check" class="ui-btn-active ui-state-persist">Current</a></li>
+                <li><a href="#" data-icon="plus">New</a></li>
+                <li><a href="#" data-icon="grid">Past</a></li>
+                <li><a href="#" data-icon="gear">Settings</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div><!-- /footer -->
+
+</div><!-- /page current-game -->
+
+</body>
+
+<script>
+    $(document).bind("mobileinit", function(){
+      $.extend(  $.mobile , {
+        defaultPageTransition: 'none'
+      });
+    });
+
+    $((function () {
+        function test(msg) {
+            return function (e) {
+                e.preventDefault();
+                alert(msg);
+            };
+        };
+        function showOverlay(prefix, revert) {
+            return function(e) {
+                e.preventDefault();
+                $(prefix).toggle(!!revert);
+                $(prefix + '-overlay').toggle(!revert);
+            }
+        }
+        $("#swipetest").on("click", test('click')).on("swipe", test('swipe'));
+
+        $('#swipetest2').on("swipe", showOverlay("#swipetest2"));//.on("click", showOverlay("#swipetest2"));
+        $('#swipetest2-overlay').on("click", showOverlay('#swipetest2', true));
+    }()));
+</script>
+
+</html>
