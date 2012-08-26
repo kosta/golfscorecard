@@ -28,12 +28,6 @@
         <a href="#" data-role="button" data-icon="plus">Set Up Players</a>
         <a href="#" data-role="button" data-icon="plus">Set Up a Golf Course</a>
         <a href="#" data-role="button" data-icon="star">Start Playing</a>
-
-        <ul data-role="listview" data-inset="true" data-theme="b">
-            <li><a id="swipetest" href="#">Swipe me</a></li>
-            <li><a href="#">But not me</a></li>
-            <li><a href="#">Not me</a></li>
-        </ul>
     </div><!-- /content -->
 
     <div data-role="footer" data-position="fixed" data-theme="b">
@@ -51,7 +45,7 @@
 
 <div data-role="page" id="current-game" data-theme="b">
 
-    <div data-role="header" data-theme="b" data-position="fixed">
+    <div data-role="header" data-theme="b" data-position="fixed" data-tap-toggle="false">
         <a href="#" data-icon="arrow-l" data-iconpos="notext"></a>
         <h1>Hole 13 Par 5</h1>
         <a href="#" data-icon="arrow-r" data-iconpos="notext"></a>
@@ -143,7 +137,7 @@
     </div> <!-- /content -->
 
     <!-- TODO: Generate this in one place -->
-    <div data-role="footer" data-position="fixed" data-theme="b">
+    <div data-role="footer" data-position="fixed" data-theme="b" data-tap-toggle="false">
         <div data-role="navbar">
             <ul>
                 <li><a href="#current" data-icon="check" class="ui-btn-active ui-state-persist">Current</a></li>
