@@ -8,7 +8,8 @@
     <script src="http://code.jquery.com/mobile/1.1.1/jquery.mobile-1.1.1.min.js"></script>
     <style>
         .overlay-inline-button-margin {
-            margin-right: 35px;
+            margin-left: 15px;
+            margin-right: 15px;
         }
     </style>
 </head> 
@@ -51,14 +52,16 @@
 <div data-role="page" id="current-game" data-theme="b">
 
     <div data-role="header" data-theme="b" data-position="fixed">
+        <a href="#" data-icon="arrow-l" data-iconpos="notext"></a>
         <h1>Hole 13 Par 5</h1>
+        <a href="#" data-icon="arrow-r" data-iconpos="notext"></a>
     </div><!-- /header-->
 
     <div data-role="content">
         <ul data-role="listview" data-theme="d" data-divider-theme="c">
             <li data-role="list-divider">Kosta<span class="ui-li-count">2</span></li>
             <li id="swipetest2">
-                <span id="swipetest2-regular">
+                <span >
                     <span style="display: inline-block; min-height: 54px; min-width: 200px">
                         <div style="position: absolute; top: 50%; height: 34px; margin-top: -17px">
                                 <h2>Taylor Made 3</h2>
@@ -68,22 +71,22 @@
                         <a href="#" data-role="button" data-inline="true" data-theme="b" data-icon="plus" data-iconpos="right">3</a>
                     </span>
                 </span> <!-- regular -->
-                <span id="swipetest2-overlay" style="display: none; min-width: 100%">
-                    <span style="display: inline-block; min-height: 54px; min-width: 100%">
-                        <div style="position: absolute; top: 50%; height: 34px; margin-top: -17px; min-width: 100%; text-align: center; background-color: pink">
-                            <!-- Back -->
-                            <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="back" data-iconpos="notext"></a> 
-                            <span style="min-width: 20px"></span>
-                            <!-- Minus -->
-                            <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="minus" data-iconpos="notext"></a> 
-                            <!-- Provisory -->
-                            <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="plus" data-iconpos="notext"></a> 
-                            <!-- Delete -->
-                            <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="delete" data-iconpos="notext"></a>
-                        </div>
-                    </span>
-                </span> <!-- overlay -->
             </li>
+            <li id="swipetest2-overlay" style="display: none">
+                <div>
+                    <h2>Taylor Made 3</h2>
+                    <p style="text-align: center">
+                        <!-- Back -->
+                        <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="back" data-iconpos="notext"></a> 
+                        <!-- Minus -->
+                        <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="minus" data-iconpos="notext"></a> 
+                        <!-- Provisory -->
+                        <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="plus" data-iconpos="notext"></a> 
+                        <!-- Delete -->
+                        <a href="#" class="overlay-inline-button-margin" data-role="button" data-inline="true" data-theme="c" data-icon="delete" data-iconpos="notext"></a>
+                    </p>
+                </div>
+            </li> <!-- overlay -->
             <li>
                 <span style="display: inline-block; min-height: 54px">
                     <div style="position: absolute; top: 50%; height: 34px; margin-top: -17px">
@@ -156,6 +159,12 @@
 </body>
 
 <script>
+    $(document).bind("mobileinit", function(){
+      $.extend(  $.mobile , {
+        defaultPageTransition: 'none'
+      });
+    });
+
     $((function () {
         function test(msg) {
             return function (e) {
@@ -163,16 +172,17 @@
                 alert(msg);
             };
         };
-        function showOverlay(prefix) {
+        function showOverlay(prefix, revert) {
             return function(e) {
                 e.preventDefault();
-                $(prefix + '-regular').hide();
-                $(prefix + '-overlay').show();
+                $(prefix).toggle(!!revert);
+                $(prefix + '-overlay').toggle(!revert);
             }
         }
         $("#swipetest").on("click", test('click')).on("swipe", test('swipe'));
 
-        $('#swipetest2').on("swipe", showOverlay("#swipetest2")).on("click", showOverlay("#swipetest2"));
+        $('#swipetest2').on("swipe", showOverlay("#swipetest2"));//.on("click", showOverlay("#swipetest2"));
+        $('#swipetest2-overlay').on("click", showOverlay('#swipetest2', true));
     }()));
 </script>
 
