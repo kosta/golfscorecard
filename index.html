@@ -15,8 +15,7 @@
 </head> 
 <body> 
 
-<!-- The start page that is never reachable again... har har har. Might want to fix this... later :) -->
-<div data-role="page" id="home" data-theme="b">
+<div data-role="page" id="settings" data-theme="b">
 
     <div data-role="header" data-theme="b" data-position="fixed">
         <h1>Golf Score Card</h1>
@@ -25,9 +24,14 @@
     <div data-role="content">
         <p>Welcome to Golf Score card</p>
         
-        <a href="#" data-role="button" data-icon="plus">Set Up Players</a>
-        <a href="#" data-role="button" data-icon="plus">Set Up a Golf Course</a>
-        <a href="#" data-role="button" data-icon="star">Start Playing</a>
+        <a href="#settings-players" data-role="button" data-icon="plus">Add Players</a>
+        <a href="#settings-courses" data-role="button" data-icon="plus">Add Golf Courses</a>
+        <a href="#new-game" data-role="button" data-icon="star">Start Playing</a>
+
+        <p>
+            Written 2012 by Kosta Welke. 
+            <a href="http://github.com/kosta/golfscorecard" target="_new">Fork me on github</a>
+        </p>
     </div><!-- /content -->
 
     <div data-role="footer" data-position="fixed" data-theme="b">
@@ -36,12 +40,184 @@
                 <li><a href="#current-game" data-icon="check">Current</a></li>
                 <li><a href="#" data-icon="plus">New</a></li>
                 <li><a href="#" data-icon="grid">Past</a></li>
-                <li><a href="#" data-icon="gear">Settings</a></li>
+                <li><a href="#settings" data-icon="gear" class="ui-btn-active ui-state-persist">Settings</a></li>
             </ul>
         </div><!-- /navbar -->
     </div><!-- /footer -->
 
 </div><!-- /page -->
+
+<div data-role="page" id="settings-players" data-theme="b">
+
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <a href="#settings" data-icon="arrow-l" data-iconpos="notext"></a>
+        <h1>Set Up Players</h1>
+    </div><!-- /header -->
+
+    <div data-role="content">
+        <label for="name-0" class="ui-hidden-accessible">Player Name</label>
+        <input type="text" name="name-0" id="name-0" value="Kosta" placeholder="Player Name"/>
+        <label for="name-1" class="ui-hidden-accessible">Player Name</label>
+        <input type="text" name="name-1" id="name-1" value="Steffi" placeholder="Player Name"/>
+        <label for="name-2" class="ui-hidden-accessible">Player Name</label>
+        <input type="text" name="name-2" id="name-2" value="" placeholder="Player Name"/>
+    </div><!-- /content -->
+
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#current-game" data-icon="check">Current</a></li>
+                <li><a href="#" data-icon="plus">New</a></li>
+                <li><a href="#" data-icon="grid">Past</a></li>
+                <li><a href="#settings" data-icon="gear" class="ui-btn-active ui-state-persist">Settings</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div><!-- /footer -->
+
+</div><!-- /page settings-players -->
+
+<div data-role="page" id="settings-courses" data-theme="c">
+
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <a href="#settings" data-icon="arrow-l" data-iconpos="notext"></a>
+        <h1>Set Up Golf Courses</h1>
+    </div><!-- /header -->
+
+    <div data-role="content">
+        <ul data-role="listview">
+            <li data-icon="plus">
+                <a href="#settings-course">Add a new course</a>
+            </li>
+            <li><a href="#settings-course?6%20Hole%20Par%2018">6 Hole Par 18</a></li>
+            <li><a href="#settings-course?Sigmaringen">Sigmaringen</a></li>
+            <li><a href="#settings-course?Ko-Samui">Ko Samui</a></li>
+        </ul>
+    </div><!-- /content -->
+
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#current-game" data-icon="check">Current</a></li>
+                <li><a href="#" data-icon="plus">New</a></li>
+                <li><a href="#" data-icon="grid">Past</a></li>
+                <li><a href="#settings" data-icon="gear" class="ui-btn-active ui-state-persist">Settings</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div><!-- /footer -->
+
+</div><!-- /page settings-courses -->
+
+<div data-role="page" id="settings-course" data-theme="b">
+
+    <div data-role="header" data-theme="b" data-position="fixed">
+        <a href="#settings-courses" data-icon="arrow-l" data-iconpos="notext"></a>
+        <h1>Set Up a Golf Course</h1>
+    </div><!-- /header -->
+
+    <div data-role="content">
+        <label for="name">Course Name</label>
+        <input type="text" name="name" id="name" value="" placeholder=""/>
+
+        <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>Holes</legend>
+                <input type="radio" name="holes" id="holes-6" value="6" checked="checked" />
+                <label for="holes-6">6</label>
+                <input type="radio" name="holes" id="holes-9" value="9" />
+                <label for="holes-9">9</label>
+                <input type="radio" name="holes" id="holes-18" value="18" />
+                <label for="holes-18">18</label>
+            </fieldset>
+        </div> <!-- fieldcontain -->
+
+        <div data-role="fieldcontain" style="border: 0">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>Hole 1 Par </legend>
+                <input type="radio" name="hole-1-par-3" id="hole-1-par-3" value="3" checked="checked" />
+                <label for="hole-1-par-3">3</label>
+                <input type="radio" name="hole-1-par-4" id="hole-1-par-4" value="3" />
+                <label for="hole-1-par-4">4</label>
+                <input type="radio" name="hole-1-par-5" id="hole-1-par-5" value="3" />
+                <label for="hole-1-par-5">5</label>
+            </fieldset>
+        </div> <!-- fieldcontain -->
+
+        <div data-role="fieldcontain" style="border: 0" style="border: 0">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>Hole 2 Par </legend>
+                <input type="radio" name="hole-2-par-3" id="hole-2-par-3" value="3" checked="checked" />
+                <label for="hole-2-par-3">3</label>
+                <input type="radio" name="hole-2-par-4" id="hole-2-par-4" value="3" />
+                <label for="hole-2-par-4">4</label>
+                <input type="radio" name="hole-2-par-5" id="hole-2-par-5" value="3" />
+                <label for="hole-2-par-5">5</label>
+            </fieldset>
+        </div> <!-- fieldcontain -->
+
+        <div data-role="fieldcontain" style="border: 0">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>Hole 3 Par </legend>
+                <input type="radio" name="hole-3-par-3" id="hole-3-par-3" value="3" checked="checked" />
+                <label for="hole-3-par-3">3</label>
+                <input type="radio" name="hole-3-par-4" id="hole-3-par-4" value="3" />
+                <label for="hole-3-par-4">4</label>
+                <input type="radio" name="hole-3-par-5" id="hole-3-par-5" value="3" />
+                <label for="hole-3-par-5">5</label>
+            </fieldset>
+        </div> <!-- fieldcontain -->
+
+        <div data-role="fieldcontain" style="border: 0">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>Hole 4 Par </legend>
+                <input type="radio" name="hole-4-par-3" id="hole-4-par-3" value="3" checked="checked" />
+                <label for="hole-4-par-3">3</label>
+                <input type="radio" name="hole-4-par-4" id="hole-4-par-4" value="3" />
+                <label for="hole-4-par-4">4</label>
+                <input type="radio" name="hole-4-par-5" id="hole-4-par-5" value="3" />
+                <label for="hole-4-par-5">5</label>
+            </fieldset>
+        </div> <!-- fieldcontain -->
+
+        <div data-role="fieldcontain" style="border: 0">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>Hole 5 Par </legend>
+                <input type="radio" name="hole-5-par-3" id="hole-4-par-3" value="3" checked="checked" />
+                <label for="hole-4-par-3">3</label>
+                <input type="radio" name="hole-5-par-4" id="hole-4-par-4" value="3" />
+                <label for="hole-4-par-4">4</label>
+                <input type="radio" name="hole-5-par-5" id="hole-4-par-5" value="3" />
+                <label for="hole-4-par-5">5</label>
+            </fieldset>
+        </div> <!-- fieldcontain -->
+
+        <div data-role="fieldcontain" style="border: 0">
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <legend>Hole 6 Par </legend>
+                <input type="radio" name="hole-6-par-3" id="hole-6-par-3" value="3" checked="checked" />
+                <label for="hole-6-par-3">3</label>
+                <input type="radio" name="hole-6-par-4" id="hole-6-par-4" value="3" />
+                <label for="hole-6-par-4">4</label>
+                <input type="radio" name="hole-6-par-5" id="hole-6-par-5" value="3" />
+                <label for="hole-6-par-5">5</label>
+            </fieldset>
+        </div> <!-- fieldcontain -->
+
+        <a href="#settings" data-role="button" data-theme="b">Save</a>
+
+    </div><!-- /content -->
+
+    <div data-role="footer" data-position="fixed" data-theme="b">
+        <div data-role="navbar">
+            <ul>
+                <li><a href="#current-game" data-icon="check">Current</a></li>
+                <li><a href="#" data-icon="plus">New</a></li>
+                <li><a href="#" data-icon="grid">Past</a></li>
+                <li><a href="#settings" data-icon="gear" class="ui-btn-active ui-state-persist">Settings</a></li>
+            </ul>
+        </div><!-- /navbar -->
+    </div><!-- /footer -->
+
+</div><!-- /page settings-players -->
 
 <div data-role="page" id="current-game" data-theme="b">
 
@@ -143,7 +319,7 @@
                 <li><a href="#current" data-icon="check" class="ui-btn-active ui-state-persist">Current</a></li>
                 <li><a href="#" data-icon="plus">New</a></li>
                 <li><a href="#" data-icon="grid">Past</a></li>
-                <li><a href="#" data-icon="gear">Settings</a></li>
+                <li><a href="#settings" data-icon="gear">Settings</a></li>
             </ul>
         </div><!-- /navbar -->
     </div><!-- /footer -->
